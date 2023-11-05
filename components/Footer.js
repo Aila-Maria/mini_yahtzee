@@ -4,11 +4,13 @@ import styles from "../style/style";
 
 
 
+
 export default Footer = () => {
+   
     return(
         <View style={styles.footer}>
-            <Text style={styles.author}>
-                Author: Pekka Ojala
+            <Text style={styles.author} >
+                Author: Aila-Maria Lintula
             </Text>
         </View>
     )

@@ -4,10 +4,20 @@ import Scoreboard from './components/Scoreboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useFonts } from 'expo-font';
+
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    Agbalumo: require('./assets/fonts/Agbalumo-Regular.ttf')
+  });
+   if(!loaded){
+    return null;
+   }
+  
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -36,8 +46,8 @@ export default function App() {
               color={color}
             />
           },
-          tabBarActiveTintColor: 'steelblue',
-          tabBarInactiveTintColor: 'gray'
+          tabBarActiveTintColor: '#631e1e',
+          tabBarInactiveTintColor: '#f69f9f'
         })}
       >
         <Tab.Screen name="Home" component={Home} options={{ tabBarStyle: { display: 'none' }}} />

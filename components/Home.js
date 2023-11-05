@@ -20,21 +20,21 @@ export default Home = ({ navigation }) => {
     return (
         <>
             <Header />
-            <View>
-                <MaterialCommunityIcons name="information" size={90} color="steelblue" />
+            <View style={Styles.gameboard}>
+                <MaterialCommunityIcons style={Styles.icon} name="information" />
                 {!hasPlayerName ?
                     <>
-                        <Text> For scoreboard enter your name</Text>
-                        <TextInput onChangeText={setPlayerName} autoFocus={true} />
-                        <Pressable
+                        <Text style={Styles.title2}> For scoreboard enter your name</Text>
+                        <TextInput style={Styles.textInput} onChangeText={setPlayerName} autoFocus={true} />
+                        <Pressable 
                             onPress={() => handlePlayerName(playerName)}
-                        ><Text>OK</Text>
+                        ><Text style={Styles.button2}>OK</Text>
                         </Pressable>
                     </>
                     :
                     <>
-                        <Text>Rules of the game</Text>
-                        <Text multiline="true">THE GAME: Upper section of the classic Yahtzee
+                        <Text style={Styles.title2}>Rules of the game</Text>
+                        <Text style={Styles.gameInfo} multiline="true">THE GAME: Upper section of the classic Yahtzee
                             dice game. You have {NBR_OF_DICES} dices and
                             for the every dice you have {NBR_OF_THROWS}
                             throws. After each throw you can keep dices in
@@ -44,24 +44,24 @@ export default Home = ({ navigation }) => {
                             Game ends when all points have been selected.
                             The order for selecting those is free.
                         </Text>
-                        <Text multiline="true">
+                        <Text style={Styles.gameInfo} multiline="true">
                             POINTS: After each turn game calculates the sum
                             for the dices you selected. Only the dices having
                             the same spot count are calculated. Inside the
                             game you can not select same points from
                             {MIN_SPOT} to {MAX_SPOT} again.
                         </Text>
-                        <Text multiline="true">
+                        <Text style={Styles.gameInfo} multiline="true">
                             GOAL: To get points as much as possible.
                             {BONUS_POINTS_LIMIT} points is the limit of
                             getting bonus which gives you {BONUS_POINTS}
                             points more.
                         </Text>
-                        <Text>Good luck, {playerName}</Text>
+                        <Text style={Styles.title2}>Good luck, {playerName}</Text>
                         <Pressable
                             onPress={() => navigation.navigate('Gameboard', { player: playerName })}
                         >
-                            <Text>PLAY</Text>
+                            <Text style={Styles.button3}>PLAY</Text>
                         </Pressable>
                     </>}
 

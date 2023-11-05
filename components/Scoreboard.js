@@ -44,26 +44,24 @@ export default Scoreboard = ({navigation}) => {
     return(
         <>
         <Header/>
-        <View>
-            <Text>Scoreboard here..</Text>
+        <View style={styles.container}>
+            <Text style={styles.title2}>SCOREBOARD</Text>
             {scores.length === 0 ?
-            <Text>Scoreboard is empty</Text>
+            <Text style={styles.text}>Scoreboard is empty</Text>
             :
             scores.map((player, index) => (
                 index < NBR_OF_SCOREBOARD_ROWS &&
                 <DataTable.Row key={player.key}>
-                    <DataTable.Cell><Text>{index + 1}.</Text></DataTable.Cell>
-                    <DataTable.Cell><Text>{player.name}</Text></DataTable.Cell>
-                    <DataTable.Cell><Text>{player.date}</Text></DataTable.Cell>
-                    <DataTable.Cell><Text>{player.time}</Text></DataTable.Cell>
-                    <DataTable.Cell><Text>{player.points}</Text></DataTable.Cell>
+                    <DataTable.Cell><Text style={styles.text2}>{index + 1}.</Text></DataTable.Cell>
+                    <DataTable.Cell><Text style={styles.text2}>{player.name}</Text></DataTable.Cell>
+                    <DataTable.Cell><Text style={styles.text2}>{player.date}</Text></DataTable.Cell>
+                    <DataTable.Cell><Text style={styles.text2}>{player.time}</Text></DataTable.Cell>
+                    <DataTable.Cell><Text style={styles.text2}>{player.points}</Text></DataTable.Cell>
                 </DataTable.Row>
             ))
         }
-        </View>
-        <View>
             <Pressable onPress={() => clearScoreboard()}>
-                <Text>CLEAR SCOREBOARD</Text>
+                <Text style={styles.button4}>CLEAR SCOREBOARD</Text>
             </Pressable>
         </View>
         <Footer/>
